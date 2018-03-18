@@ -7,21 +7,21 @@ with this package, you'll get a media server environment capable of finding, gra
 ### services and where to access them
 | service | purpose | url / ports |
 | ------- | ------- | :---------: |
-| plex | movie / tv / music interface | plex.${DOMAIN} <br> :32400 |
-| ubooquity | book / comic interface | ubooquity.${DOMAIN}/ubooquity <br> :8160 <br> :8161 |
-| traefik | reverse proxy | traefik.${DOMAIN} <br> :80 <br> :443|
-| heimdall | dashboard | heimdall.${DOMAIN} |
-| sabnzbd | nzb download | sab.${DOMAIN} |
-| transmission | torrent download | transmission.${DOMAIN} |
-| hydra | nzb searcher | hydra.${DOMAIN} |
-| jackett | torznab searcher | jackett.${DOMAIN} |
-| sonarr | tv management | sonarr.${DOMAIN} |
-| radarr | movie management | radarr.${DOMAIN} |
-| headphones | music management | headphones.${DOMAIN} |
-| lazylibrarian | book management | lazylibrarian.${DOMAIN} |
-| mylar | comic management | mylar.${DOMAIN} |
-| ombi | plex requests | ombi.${DOMAIN} |
-| tautulli | plex statistics | tautulli.${DOMAIN} |
+| plex | movie / tv / music interface | https://plex.${DOMAIN} <br> :32400 |
+| ubooquity | book / comic interface | https://ubooquity.${DOMAIN}/ubooquity <br> :8160 <br> :8161 |
+| traefik | reverse proxy | https://traefik.${DOMAIN} <br> :80 <br> :443|
+| heimdall | dashboard | https://heimdall.${DOMAIN} |
+| sabnzbd | nzb download | https://sab.${DOMAIN} |
+| transmission | torrent download | https://transmission.${DOMAIN} |
+| hydra | nzb searcher | https://hydra.${DOMAIN} |
+| jackett | torznab searcher | https://jackett.${DOMAIN} |
+| sonarr | tv management | https://sonarr.${DOMAIN} |
+| radarr | movie management | https://radarr.${DOMAIN} |
+| headphones | music management | https://headphones.${DOMAIN} |
+| lazylibrarian | book management | https://lazylibrarian.${DOMAIN} |
+| mylar | comic management | https://mylar.${DOMAIN} |
+| ombi | plex requests | https://ombi.${DOMAIN} |
+| tautulli | plex statistics | https://tautulli.${DOMAIN} |
 
 ## installation
 installation is omega-easy!
