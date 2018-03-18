@@ -38,7 +38,7 @@ note: there is an additional step required to link the Plex server to your accou
 
 if you're on \*nix, this can be done like this: 
 ```
-ssh -L 8080:localhost:32400 user@dockerhost
+ssh -L 8080:localhost:32400 user@host
 ```
 if you're on Windows, i'd recommend doing the same via puTTY.
 
@@ -74,7 +74,7 @@ USER_NAME=#username for local sudo-er
 PASSWORD=#password for local sudo-er
 BASE_DIR=#base path for container configuration storage
 MEDIA_DIR=#base path for media library storage
-TIMEZONE=#local timezon, i.e. America/Montevideo
+TIMEZONE=#local timezone, i.e. America/Montevideo
 
 # DOCKER CONFIGURATION
 DOMAIN=#domain name for the media stack
