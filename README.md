@@ -22,6 +22,7 @@ with this package, you'll get a media server environment capable of finding, gra
 | mylar | comic management | https://mylar.${DOMAIN} |
 | ombi | plex requests | https://ombi.${DOMAIN} |
 | tautulli | plex statistics | https://tautulli.${DOMAIN} |
+| cockpit | server statistics & management | :9090 |
 
 ## installation
 installation is omega-easy!
