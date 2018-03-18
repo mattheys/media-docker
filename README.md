@@ -34,6 +34,14 @@ installation is omega-easy!
 6. wait a few minutes, watch the color-coded status messages scroll by
 7. use your newly configured media stack! hooray!
 
+note: there is an additional step required to link the Plex server to your account. Plex requires this step to be done from localhost, so you'll need to set up an ssh tunnel to make Plex think you're localhost. 
+
+if you're on \*nix, this can be done like this: 
+```
+ssh -L 8080:localhost:32400 user@dockerhost
+```
+if you're on Windows, i'd recommend doing the same via puTTY.
+
 ## what are those?
 ### deploy.sh
 a straightforward shell script that ensures your environment is configured as needed to ensure a solid media server. the process it takes is as follows:
@@ -50,7 +58,7 @@ a straightforward shell script that ensures your environment is configured as ne
 
 all of the customizable bits (users, directories, email) are pulled from the dotenv file. if anything fails, the shell script will tell you in big red text.
 
-if you're feeling saucy and confident that your system is properly configured, you can bypass `.\deploy.sh` and run `docker-compose up --force-recreate -d` on your own.
+if you're feeling saucy and confident that your system is properly configured (or if you're running a non-apt system), you can bypass `.\deploy.sh` and run `docker-compose up --force-recreate -d` on your own.
 
 ### docker-compose.yml
 this file contains all of the instructions Docker Compose needs to pull, build, and configure the entire media environment. as with `.\deploy.sh`, all user-configurable items are exposed through the dotenv file.
