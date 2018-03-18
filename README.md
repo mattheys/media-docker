@@ -29,9 +29,10 @@ installation is omega-easy!
 1. have an Ubuntu machine available
 2. be root
 3. run `sudo git clone https://github.com/joshuhn/media-docker/ /media-docker/ && cd /media-docker/`
-4. make sure that the script is executable (`chmod +x .\deploy.sh`) and run `.\deploy.sh`
-5. wait a few minutes, watch the color-coded status messages scroll by
-6. use your newly configured media stack! hooray!
+4. open `.env` in your favorite text editor and set the variables it contains
+5. make sure that the script is executable (`chmod +x .\deploy.sh`) and run `.\deploy.sh`
+6. wait a few minutes, watch the color-coded status messages scroll by
+7. use your newly configured media stack! hooray!
 
 ## what are those?
 ### deploy.sh
