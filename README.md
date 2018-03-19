@@ -8,7 +8,7 @@ with this package, you'll get a media server environment capable of finding, gra
 | service | purpose | url / ports |
 | ------- | ------- | :---------: |
 | plex | movie / tv / music interface | https://plex.${DOMAIN} <br> :32400 |
-| ubooquity | book / comic interface | https://ubooquity.${DOMAIN}/ubooquity <br> :8160 <br> :8161 |
+| ubooquity | book / comic interface | https://ubooquity.${DOMAIN}/ubooquity <br> https://admin-ubooquity.${DOMAIN}/ubooquity/admin |
 | traefik | reverse proxy | https://traefik.${DOMAIN} <br> :80 <br> :443|
 | heimdall | dashboard | https://heimdall.${DOMAIN} |
 | sabnzbd | nzb download | https://sab.${DOMAIN} |
@@ -64,7 +64,7 @@ if you're feeling saucy and confident that your system is properly configured (o
 ### docker-compose.yml
 this file contains all of the instructions Docker Compose needs to pull, build, and configure the entire media environment. as with `.\deploy.sh`, all user-configurable items are exposed through the dotenv file.
 
-all services are accessed via a Traefik reverse proxy for security. unfortunately, due to the complexity or poor design (or both) of Plex and Ubooquity, they're also able to be reached directly. there's light at the end of that tunnel, though, as the Traefik team are currently working on a method of applying multiple routing labels to a single container. once that's implemented, we'll apply it here to make up for the needlessly many ports those services use.
+all services are accessed via a Traefik reverse proxy for security. unfortunately, due to the complexity or poor design (or both) of Plex, it's also able to be reached directly. there's light at the end of that tunnel, though, as the Traefik team are currently working on a method of applying multiple routing labels to a single container. once that's implemented, we'll apply it here to make up for the needlessly many ports those services use.
 
 ### .env
 a simple dotenv file containing the variables necessary to configure and install all necessary components for the project.
