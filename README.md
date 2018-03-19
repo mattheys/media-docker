@@ -66,32 +66,73 @@ this file contains all of the instructions Docker Compose needs to pull, build, 
 
 all services are accessed via a Traefik reverse proxy for security. unfortunately, due to the complexity or poor design (or both) of Plex, it's also able to be reached directly. there's light at the end of that tunnel, though, as the Traefik team are currently working on a method of applying multiple routing labels to a single container. once that's implemented, we'll apply it here to make up for the needlessly many ports those services use.
 
+### traefik.toml
+you don't need to worry about this one, the only thing to change is your email address and `.\deploy.sh` takes care of this for you.
+
 ### .env
 a simple dotenv file containing the variables necessary to configure and install all necessary components for the project.
 
-```
-# SYSTEM CONFIGURATION
-USER_NAME=#username for local sudo-er
-PASSWORD=#password for local sudo-er
-BASE_DIR=#base path for container configuration storage
-MEDIA_DIR=#base path for media library storage
-TIMEZONE=#local timezone, i.e. America/Montevideo
+| variable | function | example |
+| -------- | -------- | ------- |
+| USER_NAME | username for account that will be created by `./deploy.sh` | joshuhn |
+| PASSWORD | password for account that will be created by `./deploy.sh` | iM@gr8Password! |
+| BASE_DIR | base directory path for container storage | /mnt/meda/data/ |
+| MEDIA_DIR | base directory path for media library storage | /mnt/media/data/media-library |
+| TIMEZONE | local timezone, set by `./deploy.sh` | America/Montevideo |
+| DOMAIN | domain name for the media stack, used by traefik | media.com |
+| COMPOSE_VERSION | version of docker-compose to pull from GitHub | 1.20.0-rc2 |
+| VPN_PROVIDER | openvpn provider, supported values in the table below | NORDVPN |
+| VPN_USER | openvpn username | joshuhn |
+| VPN_PASS | openvpn password | iM@gr8Password! |
+| EMAIL_ADDRESS | email used for let's encrypt | josh@email.me |
 
-# DOCKER CONFIGURATION
-DOMAIN=#domain name for the media stack
-COMPOSE_VERSION=#version of Docker Compose to install, i.e. 1.20.0-rc2
+### vpn providers
+the following is lifted wholesale from the base package's readme. the full text can be found [here.](https://github.com/haugene/docker-transmission-openvpn)
 
-# VPN CREDENTIALS
-VPN_PROVIDER=
-VPN_USER=
-VPN_PASS=
+This is a list of providers that are bundled within the image. Feel free to create an issue if your provider is not on the list, but keep in mind that some providers generate config files per user. This means that your login credentials are part of the config an can therefore not be bundled. In this case you can use the custom provider setup described later in this readme. The custom provider setting can be used with any provider.
 
-# TRAEFIK CONFIGURATION
-EMAIL_ADDRESS=#email address for let's encrypt
-```
-
-### traefik.toml
-you don't need to worry about this one, the only thing to change is your email address and `.\deploy.sh` takes care of this for you.
+| Provider Name                | Config Value (`OPENVPN_PROVIDER`) |
+|:-----------------------------|:-------------|
+| Anonine | `ANONINE` |
+| AnonVPN | `ANONVPN` |
+| BlackVPN | `BLACKVPN` |
+| BTGuard | `BTGUARD` |
+| Cryptostorm | `CRYPTOSTORM` |
+| Cypherpunk | `CYPHERPUNK` |
+| FrootVPN | `FROOT` |
+| FrostVPN | `FROSTVPN` |
+| Giganews | `GIGANEWS` |
+| HideMe | `HIDEME` |
+| HideMyAss | `HIDEMYASS` |
+| IntegrityVPN | `INTEGRITYVPN` |
+| IPredator | `IPREDATOR` |
+| IPVanish | `IPVANISH` |
+| Ivacy | `IVACY` |
+| IVPN | `IVPN` |
+| Mullvad | `MULLVAD` |
+| Newshosting | `NEWSHOSTING` |
+| NordVPN | `NORDVPN` |
+| OVPN | `OVPN` |
+| Perfect Privacy | `PERFECTPRIVACY` |
+| Private Internet Access | `PIA` |
+| PrivateVPN | `PRIVATEVPN` |
+| proXPN | `PROXPN` |
+| PureVPN | `PUREVPN` |
+| RA4W VPN | `RA4W` |
+| SaferVPN | `SAFERVPN` |
+| SlickVPN | `SLICKVPN` |
+| Smart DNS Proxy | `SMARTDNSPROXY` |
+| SmartVPN | `SMARTVPN` |
+| TigerVPN | `TIGER` |
+| TorGuard | `TORGUARD` |
+| UsenetServerVPN | `USENETSERVER` |
+| Windscribe | `WINDSCRIBE` |
+| VPNArea.com | `VPNAREA` |
+| VPN.AC | `VPNAC` |
+| VPN.ht | `VPNHT` |
+| VPNBook.com | `VPNBOOK` |
+| VPNTunnel | `VPNTUNNEL` |
+| VyprVpn | `VYPRVPN` |
 
 ## thanks!
 this very much stands on the shoulders of those who came before, all this has done is made the deployment process simple.
