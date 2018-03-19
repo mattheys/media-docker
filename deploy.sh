@@ -55,6 +55,7 @@ email_address=$(get_env_var EMAIL_ADDRESS .env)
 timezone=$(get_env_var TIMEZONE .env)
 compose_version=$(get_env_var COMPOSE_VERSION .env)
 base_dir=$(get_env_var BASE_DIR .env)
+domain=$(get_env_var DOMAIN .env)
 
 ## EXECUTION
 # Must be root
@@ -139,7 +140,9 @@ apt_install "docker-ce"
 
 info "Installing Docker Compose."
 info "Downloading Compose from GitHub."
-sudo curl -fsSL https://github.com/docker/compose/releases/download/"${compose_version}"/docker-compose-Linux-x86_64 \
+sudo curl -fsSL https://github.com/docker/compose/releases/download/\
+  "${compose_version}"\
+  /docker-compose-Linux-x86_64 \
   -o /usr/local/bin/docker-compose \
   &> /dev/null
 if [[ "$?" -ne "$SUCCESS" ]]
@@ -172,6 +175,12 @@ sed -i "s/#EMAIL_ADDRESS#/${email_address}/g" traefik.toml
 if [[ "$?" -ne "$SUCCESS" ]]
 then
   err "Traefik email replace failed."
+  exit 1
+fi
+sed -i "s/#DOMAIN#/${domain}/g" traefik.toml
+if [[ "$?" -ne "$SUCCESS" ]]
+then
+  err "Traefik domain replace failed."
   exit 1
 fi
 sudo mkdir -p "${base_dir}"/traefik/ > /dev/null
