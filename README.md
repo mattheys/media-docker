@@ -83,6 +83,7 @@ a simple dotenv file containing the variables necessary to configure and install
 | PASSWORD | password for account that will be created by `./deploy.sh` | iM@gr8Password! |
 | BASE_DIR | base directory path for container storage | /mnt/meda/data/ |
 | MEDIA_DIR | base directory path for media library storage | /mnt/media/data/media-library |
+| MEDIA_DIR | base directory path for downloads | /mnt/media/data/downloads |
 | TIMEZONE | local timezone, set by `./deploy.sh` | America/Montevideo |
 | DOMAIN | domain name for the media stack, used by traefik | media.com |
 | COMPOSE_VERSION | version of docker-compose to pull from GitHub | 1.20.0-rc2 |
