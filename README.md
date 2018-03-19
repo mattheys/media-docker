@@ -43,6 +43,11 @@ ssh -L 8080:localhost:32400 user@host
 ```
 if you're on Windows, i'd recommend doing the same via puTTY.
 
+### non-apt systems
+if you're running on a system that doesn't use the apt package manager, you unfortunately can't use the `./deploy.sh` script. it relies heavily on apt, so you'll need to perform the configuration manually. refer to the deploy.sh section below for details on what the script actually does.
+
+if you're confident your system is configured appropriately, run `docker-compose up --force-recreate -d` from `/media-docker`.
+
 ## what are those?
 ### deploy.sh
 a straightforward shell script that ensures your environment is configured as needed to ensure a solid media server. the process it takes is as follows:
