@@ -77,7 +77,7 @@ services:
     container_name: sabnzbd
     volumes:
       - ${BASE_DIR}/sabnzbd/config:/config
-      - ${BASE_DIR}/sabnzbd/downloads:/downloads
+      - ${DOWNLOAD_DIR}:/downloads
     environment:
       - PUID=1000
       - PGID=1000
@@ -100,7 +100,7 @@ services:
     container_name: hydra
     volumes:
       - ${BASE_DIR}/hydra/config:/config
-      - ${BASE_DIR}/hydra/nzb:/downloads
+      - ${BASE_DIR}/hydra/blackhole:/downloads
     environment:
       - PUID=1000
       - PGID=1000
@@ -149,7 +149,7 @@ services:
     volumes: 
       - ${BASE_DIR}/sonarr/config:/config
       - ${MEDIA_DIR}/TV:/tv
-      - ${BASE_DIR}/sabnzbd/downloads:/downloads
+      - ${DOWNLOAD_DIR}:/downloads
     environment:
       - PUID=1000
       - PGID=1000
@@ -173,7 +173,7 @@ services:
     volumes:
       - ${BASE_DIR}/radarr/config:/config
       - ${MEDIA_DIR}/Movies:/movies
-      - ${BASE_DIR}/sabnzbd/downloads:/downloads
+      - ${DOWNLOAD_DIR}:/downloads
     environment:
       - PUID=1000
       - PGID=1000
@@ -197,7 +197,7 @@ services:
     volumes: 
       - ${BASE_DIR}/headphones/config:/config
       - ${MEDIA_DIR}/Music:/music
-      - ${BASE_DIR}/sabnzbd/downloads:/downloads
+      - ${DOWNLOAD_DIR}:/downloads
     environment:
       - PUID=1000
       - PGID=1000
@@ -221,7 +221,7 @@ services:
     volumes:
       - ${BASE_DIR}/lazylibrarian/config:/config
       - ${MEDIA_DIR}/Books:/books
-      - ${BASE_DIR}/sabnzbd/downloads:/downloads
+      - ${DOWNLOAD_DIR}:/downloads
     environment:
       - PUID=1000
       - PGID=1000
@@ -245,7 +245,7 @@ services:
     volumes:
       - ${BASE_DIR}/mylar/config:/config
       - ${MEDIA_DIR}/Comics:/comics
-      - ${BASE_DIR}/sabnzbd/downloads:/downloads
+      - ${DOWNLOAD_DIR}:/downloads
     environment:
       - PUID=1000
       - PGID=1000
@@ -343,6 +343,8 @@ services:
     container_name: transmission
     volumes:
       - ${BASE_DIR}/transmission:/data
+      - ${DOWNLOAD_DIR}/complete:/data/completed
+      - ${DOWNLOAD_DIR}/incomplete:/data/incomplete
       - /etc/localtime:/etc/localtime:ro
     environment:
       - PUID=1000
