@@ -53,15 +53,19 @@ services:
       - TZ=${TIMEZONE}
     labels:
       - traefik.backend=ubooquity
-      - traefik.frontend.rule=Host:ubooquity.${DOMAIN}
       - traefik.docker.network=proxied
+      - traefik.frontend.rule=Host:ubooquity.${DOMAIN}
       - traefik.port=2202
+      - traefik.default.protocol=http
+      - traefik.admin.frontend.rule=Host:admin-ubooquity.${DOMAIN}
+      - traefik.admin.port=2203
+      - traefil.admin.protocol=http
     networks:
       - internal
       - proxied
-    ports:
-      - 8160:2202
-      - 8161:2203
+    expose:
+      - 2202
+      - 2203
     restart: always
 
   ## /Media Interfaces
@@ -401,11 +405,21 @@ services:
       - 443:443
     expose:
       - 8080
-    command:
-      - --docker
     restart: always
-
   ## /Traefik Proxy
+
+  ## Watchtower Updater
+  watchtower:
+    image: v2tec/watchtower:latest
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command:
+      - --cleanup --schedule="0 0 2 * * *"
+    networks:
+      - proxied
+    restart: unless-stopped
+  ## /Watchtower Updater
 
 # Networking config
 networks:
