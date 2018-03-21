@@ -140,9 +140,7 @@ apt_install "docker-ce"
 
 info "Installing Docker Compose."
 info "Downloading Compose from GitHub."
-sudo curl -fsSL https://github.com/docker/compose/releases/download/\
-  "${compose_version}"\
-  /docker-compose-Linux-x86_64 \
+sudo curl -fsSL https://github.com/docker/compose/releases/download/"${compose_version}"/docker-compose-Linux-x86_64 \
   -o /usr/local/bin/docker-compose \
   &> /dev/null
 if [[ "$?" -ne "$SUCCESS" ]]
