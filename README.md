@@ -151,7 +151,7 @@ this project makes use of the following Docker containers:
 - linuxserver\jackett
 - linuxserver\sonarr
 - linuxserver\radarr
-- linuxserver\headphones
+- linuxserver\lidarr
 - linuxserver\lazylibrarian
 - linuxserver\mylar
 - linuxserver\heimdall
@@ -160,3 +160,4 @@ this project makes use of the following Docker containers:
 - haugene\transmission-openvpn
 - haugene\transmission-openbpn-proxy
 - traefik
+- watchtower
