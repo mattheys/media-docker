@@ -417,7 +417,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command:
-      - --cleanup --schedule="0 0 2 * * *"
+      - --cleanup --schedule "0 0 2 * * *"
     networks:
       - proxied
     restart: unless-stopped
