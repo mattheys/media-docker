@@ -56,6 +56,7 @@ timezone=$(get_env_var TIMEZONE .env)
 compose_version=$(get_env_var COMPOSE_VERSION .env)
 base_dir=$(get_env_var BASE_DIR .env)
 domain=$(get_env_var DOMAIN .env)
+plexclaim=$(get_env_var PLEXCLAIM .env)
 
 ## EXECUTION
 # Must be root
