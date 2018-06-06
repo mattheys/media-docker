@@ -16,6 +16,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TIMEZONE}
+      - PLEX_CLAIM=${PLEXCLAIM}
     labels:
       - traefik.backend=plex
       - traefik.frontend.rule=Host:plex.${DOMAIN}
