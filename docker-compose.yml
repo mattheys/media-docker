@@ -48,8 +48,8 @@ services:
     image: linuxserver/nzbget:latest
     container_name: nzbget
     volumes:
-      - ${BASE_DIR}/:/config
-      - ${DOWNLOAD_DIR}:/downloads
+      - ${BASE_DIR}/nzbget/config:/config
+      - ${DOWNLOAD_DIR}/nzbget:/downloads
     environment:
       - PUID=1000
       - PGID=1000
@@ -99,7 +99,7 @@ services:
     volumes: 
       - ${BASE_DIR}/sonarr/config:/config
       - ${MEDIA_DIR}/TV:/tv
-      - ${DOWNLOAD_DIR}:/downloads
+      - ${DOWNLOAD_DIR}/sonarr:/downloads
     environment:
       - PUID=1000
       - PGID=1000
