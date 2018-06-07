@@ -233,7 +233,6 @@ services:
 
 # Networking config
 networks:
-  vpn:
   internal:
     external: false
   proxied:
